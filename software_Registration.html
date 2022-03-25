@@ -1,0 +1,147 @@
+﻿<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Software - Shapes</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+            <header id="header">
+                <a href="index.html" class="logo">Project Page</a>
+            </header>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul class="links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="project_page_software.html">Software</a></li>
+                    <li class="active"><a href="software_Registration.html">Shapes</a></li>
+                </ul>
+                <ul class="icons">
+                    <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+                </ul>
+            </nav>
+
+            <!-- Main -->
+            <div id="main">
+                <section>
+                    <header class="major">
+                        <h1>
+                            Shapes module
+                        </h1>
+                    </header>
+                    <p>
+                        The main classes here are 
+                        <ul>
+                            <li>ShapesRegistration - to perform registration with different methods </li>
+                            <li> RegMetrics - to evaluate results from resgistration under different metrics.</li>
+                        </ul>
+
+                    </p>
+                </section>
+
+
+                <section>
+
+                    <h2>ShapesRegistration</h2>
+
+                    <p>
+                        This is a generic class that can then be used to create new classes for a desired method by implementing the method <i>pair_registration</i>.
+                        We will first give an overview of the class and then explain how to implement  <i>pair_registration</i>. Currently, the implemented methods are ICP, NICP, BCPD and GPReg.
+                    </p>
+
+                    <p>
+                        <h3>simple_registration</h3>
+                        The way to perform registration is with a call to the method <i>simple_registration</i>, which receives as input a template,
+                        a ShapeDataset object and an <i>id_list</i> of the shapes to register. The registration can be performed in parallel by setting the flag <i>flag_parallel</i> to true.
+                        The output is an object of class RegDataset.
+                    </p>
+
+                    <p>
+                        <h3>Create a registration method class </h3>
+                        Any registration class inherits from ShapesRegistration. Then its specific attributes can be defined and the method pair_registration must be implemented.
+
+                    </p>
+
+                    <p>
+                        <i> pair_registration</i>  receives as input two numpy matrices, the target and the source - the source must be deformed to fit the target.
+                        The specific steps of the method are then implemented. It must return a numpy matrix of the same dimensions as the source with its deformed version and
+                        a correspondence vecotr with the ids of the target corresponding to each template point - if no correspondence is found that element is set to nan.
+                    </p>
+
+                    <p>
+                        <h3>Usage </h3>
+                        Below we present an example of usage for the registration with ICP.
+                        <pre><code>max_dist = 0.25
+icp_reg = IcpRegistration(reg_type = 'point_to_point', max_dist=max_dist, scaling=False)
+flag_parallel = False
+id_list = 'all'
+reg_dataset = icp_reg.simple_registration(template, dataset, id_list, flag_parallel)    
+</code></pre>
+                    </p>
+                </section>
+                <section>
+                <!-- RegMetrics -->
+
+                <p>
+                    <h2>RegMetrics</h2>
+                    This class requires as input one object ShapeDataset with the original dataset and one object RegDataset with the output of a registration procedure.
+                    It computes a given number of pertinent metrics and displays the results. Below we describe the most useful methods.
+                </p>
+                <p>
+                    <b>plot_dist_metrics_by_shape</b> - produces 3 bar plots with 3 different distance measures: average distance between the deformed template and target,
+                    average difference between the original template and target and average difference in the target for correspondences found.
+
+                    <img src="images/reg_metrics_pic_distances.png" width="599" height="660" alt="" />
+                </p>
+                <p>
+                    <b>plot_corr_metrics_by_shape</b> -  plots correspondences metrics by shape
+                </p>
+                <p>
+                    <b>plot_outlier_metric_by_shape</b> -   plots outliers metrics by shape (accuracy, recall and precision)
+                </p>
+                <p>
+                    <b>plot_missing_metric_by_shape</b> -  plots missing data metrics by shape (accuracy, recall and precision)
+                </p>
+
+
+                </section>
+
+
+
+
+                <!-- Post -->
+
+
+
+            </div>
+            <!-- Copyright -->
+            <div id="copyright">
+                <ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+            </div>
+
+        </div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
