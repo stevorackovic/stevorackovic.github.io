@@ -47,15 +47,63 @@
 							<section class="post">
 								<header class="major">
 									<h3>Clustering of the Blendshape Facial Model</h3>
-									<img src="images/Paper_1_Figure_1.png" alt=""  width="500"/>
-									<p> We proposed a novel method for clustering the face in a blendshape animation. There are two essential points to mention about this method:
+									<img src="images/Paper_1_Figure_1.png" alt=""  width="1000"/>
+									<p> 
+									We proposed a novel method for clustering the face in a blendshape animation.
+									The algorithm employs two=fold clustering, segmenting the face in both a mesh space and a controller space.
+									There are two essential points to mention about this method:
 									<ul>
 									<li> The goal that we had in mind for the obtained clusters is a distributed solving of the inverse rig problem; </li>
 									<li> The clustering method is based exclusively on the blendshape basis, hence it doesn't depend on an animation data, only on the underlying space of motion of a character  </li>
 									</ul>  
-									The figure on top shows schematically how the method works. A face is represented by the blendshape matrix \(\textbf{B}\in\mathbb{R}^{3n\times m}\), where each of \(m\) columns is a single blendshape vector. Since we want to create mesh clusters, the idea is to perform a row-wise clustering. However, blendshape vectors contain \(x,y,z\) cordinates of each vertex, and a simple clustering over the rows will result in different coordinates of a single vertex getting assigned to different clusters. To avoid this,
-									The matrix is then 'condensed' into a new matrix \(\textbf{D}\in\mathbb{R}^{n\times m}\) in the following way - since blendshape vectors contain \(x,y,z\) cordinates of each vertex, we take an Eucledian offset, so that gives a single value instead of three that we had originaly. This is important because 
+									The figure on top shows schematically how the method works. 
+									A face is represented by the blendshape matrix \(\textbf{B}\in \mathbb{R}^{3n\times m}\), where each of \(m\) columns is a single blendshape vector. 
+									Since we want to create mesh clusters, the idea is to perform a row-wise clustering. 
+									However, blendshape vectors contain \(x,y,z\) coordinates of each vertex, so a simple clustering over the rows will result in different coordinates of a single vertex assigned to different clusters. 
+									To avoid this, we 'condense' a blendshape matrix into a new matrix \(\textbf{D}\in\mathbb{R}^{n\times m}\), that will have a Euclidean offset instead of the coordinate values. 
+									More formally, if we consider a vertex \(i\) of a blendshape vector \(\textbf{b}\), we will get an offset as \(\textbf{d}_i = \sqrt{(\textbf{b}_i^x)^2 + (\textbf{b}_i^y)^2 + (\textbf{b}_i^z})^2\). 
+									These offset values don't give us the info about the direction of the deformation, but we are only interested in the magnitude of change within each blendshape, hence a proposed transformation is beneficial for further results. 
+									Now a simple K-means (or any other clustering algorithm) can be performed over the rows of \(\textbf{D}\) to get mesh clusters. 
 									</p>
+									<img src="images/Paper_1_Figure_2.png" alt=""  width="700"/>
+									<p>
+									Now that we have mesh clusters, it is time to visit controllers. 
+									We know that blendshapes have local influence, and this is why we don't want to use, e.g., a controller for the left ear in the inverse rig estimation over the mesh cluster corresponding to the right brow. 
+									The figure above shows that the controllers are assigned to the mesh clusters where they seem relevant. 
+									The columns of \(\textbf{D}\) are split into subvectors (according to mesh clusters). 
+									Only the average values of each subvector are computed and extracted (in the figure, those values are denoted with h). 
+									In this sense, vectors \(\textbf{d}\) are 'compressed' into new vectors \(\textbf{h}\), whose values represent an average magnitude of the change, i.e., the importance of a given blendshape per cluster. 
+									Now K-means is performed again but over a single vector \(\textbf{h}\). 
+									This one-dimensional clustering will, in fact, be similar to a threshold split, and separate the values into high and low. 
+									Now, a visited blendshape is assigned to each mesh cluster where its activation value was classified as 'high'. 
+									</p>
+									<p>
+									Clearly, some of the controllers will be assigned to more than one cluster. 
+									With a moderate number of clusters K, this will, in general, be tolerable. 
+									However, if the number of clusters is too high, an overlap of the controller sets between some pairs of clusters can be huge, and it is better to merge the two clusters. 
+									For this reason, we include an additional parameter \(p\in\[0,1]\) - a tolerance of the overlap, i.e., if the percentage of the overlap in controller sets is above the given value p, the clusters are merged. 
+									This works as a sort of a regularizer on the number of clusters K, and allows to initially set a larger value. 
+									In the figure below, we see how the two pairs of clusters in the mouth region are merged, and instead of 18, we end up with 16 clusters. 
+									</p>
+									<img src="images/Paper_1_Figure_3.png" alt=""  width="700"/>
+									<p>
+									Finally, when the clusters are produced, each one is observed as a separate sub-model of the face, and the learning model is trained for each one (in parallel) to estimate the corresponding weights. 
+									In the paper, we later average the values of those controllers that appear in more than one segment, but it might be interesting (and beneficial) to try to model a better approach for estimating the shared weights. 
+									The savings in computational memory compared to a non-clustered setting are immense. 
+									Look at the bottom-most figure. On the left, we see a segmented mesh with 16 clusters, where the pink one consists of inactive vertices, and it doesn't have any assigned weights. 
+									That means we can remove those vertices from the start, which is already a reduction of almost one third. 
+									Then on the right, we see the sub-matrix of a blendshape matrix, with vertices that correspond to non-empty clusters. 
+									All the entries colored light blue will be omitted, as our method uses only the colored submatrices. 
+									And yet, even despite this reduction of the size (or actually, thanks to it), we obtained higher accuracy of the fit when estimating the animation weights. 
+									</p>
+									<p>
+									For a detailed derivation of the algorithm and presentation of the experimental results, check our paper. 
+									<ul class="actions special">
+										<li><a href="https://ieeexplore.ieee.org/abstract/document/9616061?casa_token=AiIz7MrFE5AAAAAA:Wz1nicpn9vzCMTjd4HOgZkpW9SSpcTH37pkgHRvr-i9wOrXF0l59V0U0DPl9z3Zp1cYNt__wLzc" class="button">Paper</a></li>
+										<li><a href="https://github.com/stevorackovic/Clustering_of_the_blendshape_facial_model" class="button">Materials</a></li>
+									</ul>
+									</p>
+									<img src="images/Paper_1_Figure_4.png" alt=""  width="700"/>
 								</header>
 							</section>	
 						
