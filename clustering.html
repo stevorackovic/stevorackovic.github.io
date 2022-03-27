@@ -47,7 +47,7 @@
 							<section class="post">
 								<header class="major">
 									<h3>Clustering of the Blendshape Facial Model</h3>
-									<img src="images/Paper_1_Figure_1.png" alt=""  width="1000"/>
+									<img src="images/Paper_1_Figure_1.png" alt="1"  width="1000"/>
 									<p> 
 									We proposed a novel method for clustering the face in a blendshape animation.
 									The algorithm employs two=fold clustering, segmenting the face in both a mesh space and a controller space.
@@ -65,7 +65,7 @@
 									These offset values don't give us the info about the direction of the deformation, but we are only interested in the magnitude of change within each blendshape, hence a proposed transformation is beneficial for further results. 
 									Now a simple K-means (or any other clustering algorithm) can be performed over the rows of \(\textbf{D}\) to get mesh clusters. 
 									</p>
-									<img src="images/Paper_1_Figure_2.png" alt=""  width="700"/>
+									<img src="images/Paper_1_Figure_2.png" alt="2"  width="700"/>
 									<p>
 									Now that we have mesh clusters, it is time to visit controllers. 
 									We know that blendshapes have local influence, and this is why we don't want to use, e.g., a controller for the left ear in the inverse rig estimation over the mesh cluster corresponding to the right brow. 
@@ -85,7 +85,7 @@
 									This works as a sort of a regularizer on the number of clusters K, and allows to initially set a larger value. 
 									In the figure below, we see how the two pairs of clusters in the mouth region are merged, and instead of 18, we end up with 16 clusters. 
 									</p>
-									<img src="images/Paper_1_Figure_3.png" alt=""  width="700"/>
+									<img src="images/Paper_1_Figure_3.png" alt="3"  width="700"/>
 									<p>
 									Finally, when the clusters are produced, each one is observed as a separate sub-model of the face, and the learning model is trained for each one (in parallel) to estimate the corresponding weights. 
 									In the paper, we later average the values of those controllers that appear in more than one segment, but it might be interesting (and beneficial) to try to model a better approach for estimating the shared weights. 
@@ -103,7 +103,7 @@
 										<li><a href="https://github.com/stevorackovic/Clustering_of_the_blendshape_facial_model" class="button">Materials</a></li>
 									</ul>
 									</p>
-									<img src="images/Paper_1_Figure_4.png" alt=""  width="700"/>
+									<img src="images/Paper_1_Figure_4.png" alt="4"  width="700"/>
 								</header>
 							</section>	
 						
