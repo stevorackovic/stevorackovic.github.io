@@ -46,9 +46,8 @@
                         In this module there are 3 important classes on the user point of view:
                         <ul>
                             <li>Shape - handles each shape element, either a point cloud (only vertices) or a mesh (vertices and faces) </li>
-                            <li>ShapeDataset - handles a set of shape elements (all of the same type) and includes methods for plotting, transforming shapes or saving them to files.</li>
-                            <li>
-                                RegDataset - handles a set of registered shape elements with respect to a given template, obtained from the registration procedure. Includes the deformed template obtained from the
+                            <li><a href="#shapeDataset">ShapeDataset</a> - handles a set of shape elements (all of the same type) and includes methods for plotting, transforming shapes or saving them to files.</li>
+                            <li><a href="#regDataset">RegDataset</a> - handles a set of registered shape elements with respect to a given template, obtained from the registration procedure. Includes the deformed template obtained from the
                                 registration as well as the correspondence vectors for each shape.
                             </li>
                         </ul>
@@ -59,7 +58,7 @@
 
                 <section>
 
-                    <h2>ShapeDataset</h2>
+                    <h2><a id="shapeDataset">ShapeDataset</a></h2>
 
                     A dataset must be instanciated with a given dimension <i>dim</i>, which all its shapes must respect
 
@@ -122,48 +121,52 @@ dataset_transf = dataset.random_missing_data(miss_ratio,id_list)
 file_type = 'ply'
 dataset.save_to_files(dest_folder,file_type)</code></pre>
                     </section>
-                        <section>
+                <section>
 
-                            <h2>RegDataset</h2>
+                    <h2><a id="regDataset">RegDataset</a></h2>
 
-                            This object is obtained as an output of a registration method. It contains information on the registration method used and the
-                            results obtained - the deformed template for each shape and the retrieved correspondences.
-                            We cover the most important attributes and methods from the user point of view.
+                    This object is obtained as an output of a registration method. It contains information on the registration method used and the
+                    results obtained - the deformed template for each shape and the retrieved correspondences.
+                    We cover the most important attributes and methods from the user point of view.
 
-                            <p>
-                                <h3>Results from registration</h3> The following attributes contain the output from any registration method.
-                                <ul>
-                                    <li>
-                                        corr_by_template - dictionary with keys as shapes ids and values are a list of correspondences in the point of view of the template,
-                                        i.e. the number of elements equals the number of target points, the ids indicate the target point for a given template point and 'nan' values
-                                        indicate  a missing point.
-                                    </li>
-                                    <li>corr_by_target - similar to corr_by_template but in the point of view of the target. </li>
-                                    <li>def_src_dict - dictionary where each shape id is associated to the deformed template matrix obtained  </li>
-                                </ul>
-                            </p>
+                    <p>
+                        <h3>Results from registration</h3> The following attributes contain the output from any registration method.
+                        <ul>
+                            <li>
+                                corr_by_template - dictionary with keys as shapes ids and values are a list of correspondences in the point of view of the template,
+                                i.e. the number of elements equals the number of target points, the ids indicate the target point for a given template point and 'nan' values
+                                indicate  a missing point.
+                            </li>
+                            <li>corr_by_target - similar to corr_by_template but in the point of view of the target. </li>
+                            <li>def_src_dict - dictionary where each shape id is associated to the deformed template matrix obtained  </li>
+                        </ul>
+                    </p>
 
-                            <p>
-                                <h3>Useful plotting functions</h3> The following are useful methods to plot registered shapes where one can visualize the correspondences obtained.
-                                Note that these are mostly suitable for 2D data.
-                                <ul>
-                                    <li>
-                                        plot_2_shapes - plots 2 different shapes in the dataset with the correspondences obtained. For a more clear result, a subset of correspondences
-                                        can be specified. Non connected points are also identified.
-                                    </li>
-                                    <li>
-                                        plot_template_and_shape - plots two figures, one with the original template and the target, and one with the deformed template and the target.
-                                        Both include the visualization of the correspondences.
-                                    </li>
-                                </ul>
-                                Below we show how to call this method with all correspondences visible and a representative result.
-                                <pre><code>id = 1
+                    <p>
+                        <h3>Useful plotting functions</h3> The following are useful methods to plot registered shapes where one can visualize the correspondences obtained.
+                        Note that these are mostly suitable for 2D data.
+                        <ul>
+                            <li>
+                                plot_2_shapes - plots 2 different shapes in the dataset with the correspondences obtained. For a more clear result, a subset of correspondences
+                                can be specified. Non connected points are also identified.
+                            </li>
+                            <li>
+                                plot_template_and_shape - plots two figures, one with the original template and the target, and one with the deformed template and the target.
+                                Both include the visualization of the correspondences.
+                            </li>
+                        </ul>
+                        Below we show how to call this method with all correspondences visible and a representative result.
+                        <pre><code>id = 1
 reg_dataset.plot_template_and_shape(id, begin = 0, end = 'all')</code></pre>
-                            </p>
 
-                            <h3>Output shapes</h3>
+                        <img src="images/example_reg.png" alt="" />
+                    </p>
 
-                        </section>
+
+                    <!-- <h3>Output shapes</h3> -->
+
+
+                </section>
 
 
 

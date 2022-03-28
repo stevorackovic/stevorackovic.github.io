@@ -43,47 +43,119 @@
                         </h1>
                     </header>
                     <p>
-                        The main classes here are 
+                        The main classes within this module are
                         <ul>
-                            <li>ShapesRegistration - to perform registration with different methods </li>
-                            <li> RegMetrics - to evaluate results from resgistration under different metrics.</li>
+                            <li><a href="#shapes_registration">ShapesRegistration</a> - to perform registration with different methods </li>
+                            <li> <a href="#reg_metric">RegMetrics</a> - to evaluate results from registration under different metrics.</li>
                         </ul>
-
+                        Below you can find details on these two modules, as well as a <a href="#implemented_methods">third section</a> about the current registration methods implemented.
                     </p>
                 </section>
 
 
                 <section>
 
-                    <h2>ShapesRegistration</h2>
+                    <h2><a id="shapes_registration">ShapesRegistration</a></h2>
 
                     <p>
-                        This is a generic class that can then be used to create new classes for a desired method by implementing the method <i>pair_registration</i>.
-                        We will first give an overview of the class and then explain how to implement  <i>pair_registration</i>. Currently, the implemented methods are ICP, NICP, BCPD and GPReg.
+                        This is a generic class that can then be used to create specific classes for a desired registration algorithm by implementing the method <i>pair_registration</i>.
+                        We will first provide an overview of the class and then detail how <i>pair_registration</i> must be correctly implemented for new methods.
+                        Currently, the implemented algorithms are <a href="#ICP">ICP</a>, <a href="#BCPD">BCPD</a> and <a href="#GPReg">GPReg</a>.
+
+
+
                     </p>
 
                     <p>
                         <h3>simple_registration</h3>
-                        The way to perform registration is with a call to the method <i>simple_registration</i>, which receives as input a template,
-                        a ShapeDataset object and an <i>id_list</i> of the shapes to register. The registration can be performed in parallel by setting the flag <i>flag_parallel</i> to true.
-                        The output is an object of class RegDataset.
+                        The way to perform registration is with a call to the method <i>simple_registration</i>, which receives as input a <i>template</i> (numpy array),
+                        a <i>dataset</i> (ShapeDataset object) and an <i>id_list</i> (list of integers) of the shapes to register. The registration can be performed in parallel by setting the flag <i>flag_parallel</i> to true.
+                        The output is an object of class <a href="software_Shapes.html">RefDataset</a>. Below is a simplified example with the ICP class.
+
+                        <pre><code>
+obj_reg = IcpRegistration()
+reg_dataset = obj_reg.simple_registration(template, dataset, id_list, flag_parallel)    
+</code></pre>
+
                     </p>
 
                     <p>
                         <h3>Create a registration method class </h3>
-                        Any registration class inherits from ShapesRegistration. Then its specific attributes can be defined and the method pair_registration must be implemented.
-
+                        Any registration class inherits from ShapesRegistration. In order to completely define a new method, it is necessary to define its attributes (specific parameters to the algorithm in question)
+                        and to implement the method <i>pair_registration</i>.
                     </p>
 
                     <p>
-                        <i> pair_registration</i>  receives as input two numpy matrices, the target and the source - the source must be deformed to fit the target.
-                        The specific steps of the method are then implemented. It must return a numpy matrix of the same dimensions as the source with its deformed version and
-                        a correspondence vecotr with the ids of the target corresponding to each template point - if no correspondence is found that element is set to nan.
+                        <i> pair_registration</i>  receives as input two numpy matrices, the target and the source, where the source is to be deformed to fit the target.
+                        The specific steps of the method are then implemented. It must return a numpy matrix of the same dimensions as the source (with the obtained deformations) and
+                        a correspondence vector with the ids of the target corresponding to each template point - if no correspondence is found that element is set to nan.
+                        Below you can find examples for the implemented methods <a href="#ICP">ICP</a>, <a href="#BCPD">BCPD</a> and <a href="#GPReg">GPReg</a>.
                     </p>
 
                     <p>
-                        <h3>Usage </h3>
-                        Below we present an example of usage for the registration with ICP.
+                        
+                </section>
+
+
+
+
+
+                <section>
+                    <!-- RegMetrics -->
+
+                    <p>
+                        <h2><a id="reg_metric">RegMetrics</a></h2>
+                        This class requires as input one object ShapeDataset with the original dataset and one object RegDataset with the output of a registration procedure.
+                        It computes a given number of pertinent metrics and displays the results. Below we describe the most useful methods.
+                    </p>
+                    <p>
+                        <b>plot_dist_metrics_by_shape</b> - produces 3 bar plots with 3 different distance measures: average distance between the deformed template and target,
+                        average difference between the original template and target and average difference in the target for correspondences found.
+
+                        <img src="images/reg_metrics_pic_distances.png" width="599" height="660" alt="" />
+                    </p>
+                    <p>
+                        <b>plot_corr_metrics_by_shape</b> -  plots correspondences metrics by shape
+                    </p>
+                    <p>
+                        <b>plot_outlier_metric_by_shape</b> -   plots outliers metrics by shape (accuracy, recall and precision)
+                    </p>
+                    <p>
+                        <b>plot_missing_metric_by_shape</b> -  plots missing data metrics by shape (accuracy, recall and precision)
+                    </p>
+
+
+                </section>
+
+
+
+                <section>
+                    <!-- RegMetrics -->
+
+                    <p>
+                        <h2><a id="implemented_methods">Implemented Methods</a></h2>
+                        We provide the classes for a few state-of-the-art methods.
+                        Note that the code for some of the methods must be obtained by the authors original repositories (links are provided at convenient locations).
+                        It serves as a template, so that users can easily implement any method of their choice.
+                        When available, we prefer the python implementation, but it often happens that it is not provided. We resort to the matlab engine for python in order
+                        to execute the matlab code (i.e. some time will be wasted to perform this step, so it may not be the most suitable option depending on the settings of your project).
+                    </p>
+
+                    <!-- ICP -->
+                    <h3><a id="ICP">Iterative Closest Point (ICP)</a></h3>
+
+                    This methods is implement with the open access library <a href="http://www.open3d.org/docs/release/index.html">Open3D</a>, for both
+                    <a href="http://www.open3d.org/docs/release/tutorial/pipelines/icp_registration.html">Point-to-Pont ICP</a>  and
+                    <a href="http://www.open3d.org/docs/release/tutorial/pipelines/icp_registration.html">Point-to-Plane ICP</a>. The necessary outputs are obtained resorting to attributes
+                    <a href="http://www.open3d.org/docs/latest/python_api/open3d.pipelines.registration.RegistrationResult.html?highlight=correspondence_set#open3d.pipelines.registration.RegistrationResult.correspondence_set
+">correspondence_set</a> (appropriately converted to template view) and <a href="http://www.open3d.org/docs/latest/python_api/open3d.pipelines.registration.RegistrationResult.html?highlight=transformation#open3d.pipelines.registration.RegistrationResult.transformation
+">transformation</a>. Points with larger distance than <i>max_dist</i> are set to <i>nan</i> in the output.
+
+                    <p>
+                        <h4><a id="ICP">Point-to-Point</a></h4>
+                        This variant takes as input <i>max_dist</i> (maximum distance allowed for corresponding points), <i>scaling</i> (if True scaling will be estimated) and <i>initial_transf</i> (initial transformation applied to template - if not defined is set to identity matrix).
+                        Below we present an example of usage.
+
                         <pre><code>max_dist = 0.25
 icp_reg = IcpRegistration(reg_type = 'point_to_point', max_dist=max_dist, scaling=False)
 flag_parallel = False
@@ -91,33 +163,60 @@ id_list = 'all'
 reg_dataset = icp_reg.simple_registration(template, dataset, id_list, flag_parallel)    
 </code></pre>
                     </p>
+
+                    <p>
+                        <h4><a id="ICP">Point-to-Plane</a></h4>
+                        In terms of implementation, the difference to the previous method is that normals are computed with
+                        a call to <a href="http://www.open3d.org/docs/latest/python_api/open3d.geometry.PointCloud.html?highlight=estimate_normals#open3d.geometry.PointCloud.estimate_normals">estimate_normals()</a>
+                        and the scaling parameter is not applicable. Therefore, this variant can be coded as
+
+                        <pre><code>icp_reg = IcpRegistration(reg_type = 'point_to_plane', max_dist=max_dist)</code></pre>
+                    </p>
+
+
+
+
+                    <!-- BCPD -->
+                    <p>
+                        <h4> <a id="BCPD">Bayesian Coherent Point Drift (BCPD)</a></h4>
+                        BCPD is implemented with the authors <a href="https://github.com/ohirose/bcpd#point-set-registration">original code</a>, where the reader may also find an extensive description of its parameters and general usage, as
+                        well as the related paper. Our code is merely an encapsulation of their function within our python framework and so we present an example of code with the parameters in our function corresponding to the BCPD
+                        original parameters - for further details refer to the mentioned page. We have included the most relevant parameters, but it is trivial to include additional ones, if necessary.
+                    </p>
+                    <p>
+                        For the encapsulation, <a href="https://it.mathworks.com/help/matlab/matlab-engine-for-python.html">MATLAB Engine</a> is used for a call to matlab in order to execute the necessary commands.
+                        This calls for the script <i>\Other_methods\BCPD\bcpd_register.m</i> which does the necessary transformations between the bcpd setting and ours (and vice-versa).
+                        The temporary files required for BCPD are stored under <i>'resources\temp_files'</i>. Note that sometimes the registration with BCPD leads to failure and does not produce any output files -
+                        in this case, the output of <i>pair_registration</i> will be None for both variables.
+                    </p>
+
+                    <pre><code>
+    omega = 0.1 #  -w Omega: outlier probability
+    lmbd = 0.1 #  -l  Lambda: expected length of deformation vectors.
+    beta = 2 #  -b  beta: range where deformation vectors are smoothed.
+    gamma = 3 #  g  gamma: randomness of the point matching at the beginning of the optimization
+
+    # convergence
+    cov_tol = 1e-4 # -c Convergence tolerance.
+    max_VB_lopps = 30 # -n maximum number of VB loops
+    min_VB_loops = 500 # -N minimum number of VB loops
+
+    normalization = 'e' # -u normalization
+
+    flag_std_acc = 0 # if set to 1 accelerates with default parameters
+
+    bcpd_reg = BcpdRegistration(omega= omega, lmbd = lmbd, beta = beta, gamma = gamma,cov_tol = cov_tol, max_VB_lopps = max_VB_lopps, min_VB_loops = min_VB_loops, flag_std_acc=flag_std_acc)
+</code></pre>
+
+                    <!-- ICP -->
+                    <p>
+                        <h4> <a id="GPReg">Gaussian Process Registration</a></h4>
+                        <i>To be added soon (upon acceptance of the related manuscript).</i>
+                    </p>
+
                 </section>
-                <section>
-                <!-- RegMetrics -->
-
-                <p>
-                    <h2>RegMetrics</h2>
-                    This class requires as input one object ShapeDataset with the original dataset and one object RegDataset with the output of a registration procedure.
-                    It computes a given number of pertinent metrics and displays the results. Below we describe the most useful methods.
-                </p>
-                <p>
-                    <b>plot_dist_metrics_by_shape</b> - produces 3 bar plots with 3 different distance measures: average distance between the deformed template and target,
-                    average difference between the original template and target and average difference in the target for correspondences found.
-
-                    <img src="images/reg_metrics_pic_distances.png" width="599" height="660" alt="" />
-                </p>
-                <p>
-                    <b>plot_corr_metrics_by_shape</b> -  plots correspondences metrics by shape
-                </p>
-                <p>
-                    <b>plot_outlier_metric_by_shape</b> -   plots outliers metrics by shape (accuracy, recall and precision)
-                </p>
-                <p>
-                    <b>plot_missing_metric_by_shape</b> -  plots missing data metrics by shape (accuracy, recall and precision)
-                </p>
 
 
-                </section>
 
 
 
