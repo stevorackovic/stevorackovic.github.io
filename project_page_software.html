@@ -26,7 +26,7 @@
             <nav id="nav">
                 <ul class="links">
                     <li><a href="index.html">Home</a></li>
-                    <li class="active"><a href="project_pipeline.html">Software</a></li>
+                    <li class="active"><a href="project_page_software.html">Software</a></li>
                 </ul>
                 <ul class="icons">
                     <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
@@ -43,20 +43,17 @@
                         <p> Filipa Valdeira</p>
                     </header>
                     <p>
-                        During the progress of this work and extensive amount of python code was developed which makes the modelling and shape registration an easier taks.
-                        This creates useful classes for handling registered and non registered datasets, as well as an easy extension of registration to new methods or different kinds of data.
-                        The two developed methods are then provided in encapsulated functions which do not require any knlowedge of this underlying library.
-                        Nonetheless, this can be a useful tool for anyone working in this field.
+                        During the progress of this work an extensive amount of python code was developed, aimed at facilitating the joint task of modelling and registration.
+                        While the two delevoped methods (<a href="project_page_pipeline.html">Pipeline</a> and <a href="project_page_probreg.html">GPReg</a>) are accompanied by an encapsulated functions, 
+                        here we detail the full extent of our underlying code. This includes useful classes for handling registered and non registered datasets of 2D or 3D data, 
+                        as well as an easy extension of registration to new methods.
                     </p>
                     <p>
-                        When convinient we rely on the open-source library <a href="http://www.open3d.org/docs/release/index.html#">Open3D</a> specifically developed to handle 3D data. Partciularly, when handling meshes we resort to
-                        their functions for input/output or mesh creation from a point cloud.
-                    </p>
-                    <p>
-                        The main components of this library are the modules <i>shapes</i>, <i>registration</i> and <i>models</i>. The first implements classes for individual shapes and full datasets,
-                        either registered or not, and allows for shape transformations while keeping track of their correspondences. The second handles different registration methods for a given dataset.
-                        The last produces low dimensional models which can be used only for registered datasets.
-
+                        The main components of this library are the modules <i>shapes</i>, <i>registration</i> and <i>gp_framework</i>. The first implements classes for individual shapes and full datasets,
+                        either registered or not, and allows for shape transformations, while keeping track of their correspondences.
+                        The second handles different registration methods and a large set of convenient metrics.
+                        The last containts extends and adapts the  <a href="https://gpflow.github.io/GPflow/2.4.0/intro.html">gpflow</a> library to shape analysis, including the proposal in our second paper. 
+                        This section will be made public upon acceptance of the paper.
                     </p>
                 </section>
 
@@ -66,7 +63,7 @@
                         <header>
                             <h2>Shapes module</h2>
                         </header>
-                        <p> Handle shapes and datasets - plotting, transform and io.</p>
+                        <p> Handles shapes and datasets in 2D or 3D, including plotting, transform and io capabilities.</p>
                         <ul class="actions special">
                             <li><a href="software_Shapes.html" class="button">More information</a></li>
                         </ul>
@@ -89,9 +86,9 @@
                                Gaussian PRocesses framework
                             </h2>
                         </header>
-                        <p> Frmework for shape modelling with GP </p>
+                        <p> Framework for shape modelling with Gaussian Processes. </p>
                         <ul class="actions special">
-                            <li><a href="software_GPFrame.html" class="button">More information</a></li>
+                            <li><a class="button"><i>Not available</i></a></li>
                         </ul>
                     </article>
 
@@ -106,7 +103,7 @@
 
                 <!-- Post -->
 
-
+                s
 
             </div>
             <!-- Copyright -->
