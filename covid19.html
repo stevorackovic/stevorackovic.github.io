@@ -48,8 +48,41 @@
 								<header class="major">
 									<h3>A Hybrid Compartmental Model with a Case Study of COVID-19 in Great Britain and Israel</h3>
 									<img src="images/Paper_2_Figure_1.png" alt="1"  width="700"/>
+									<p>
+									This paper aims to model the spread and effects of COVID19 over the time frame of two years, based on the number of features that we can split into two classes: 
+									<ol>
+									<li> Governmental Restrictions, like the closing of the workplaces, internal movements restrictions, etc.;  </li>
+									<li> Medical interventions, like vaccination, testing, etc.   </li>
+									</ol>  
+									Another group of available attributes is statistics about the deaths, hospitalizations, cases..., and we consider them as ground-truth values used to fit the model. 
+									To ensure that the model generalizes well, it was evaluated over two countries with different strategies and overall results - Israel and Great Britain. 
+									</p>
+									<p>
+									We chose to model the population using social networks. 
+									However, unless there is an available database of person-to-person contacts, one needs to have a good heuristic to account for the nonhomogeneity of the population and other issues. 
+									There are some popular choices of the graphs when representing the population, so we rely on these, with changing the topology based on the governmental restrictions in place. 
+									Namely, in the case of a hard lockdown, the population is presented with a lattice graph \(L_0\), and then, with the relaxation of the measures, additional edges are added to produce a small world lattice \(L_x\) with varying rewiring coefficient \(x>0\). 
+									For the higher levels of relaxations, the topology is built by composing the random graphs \(R_x\) rather than a small world lattice. There are 8 topologies in total built in the following way:
+									\( \begin{equation}
+									\centering
+									\begin{split}
+									L_s &= L_0 \cup L_{p_l}\\
+									L_m &= L_s \cup L_{p_l}\\
+									L_l &= L_m \cup L_{p_l}\\
+									R_{xs} &= L_l \cup R_{p_{rxs}}\\
+									R_{s} &= R_{xs} \cup R_{p_{rs}}\\
+									R_{m} &= R_{s} \cup R_{p_{rm}}\\
+									R_{l} &= R_{m} \cup R_{p_{rl}}\\
+									\end{split}
+									\end{equation} \)
+									where the coefficients need to be estimated from the data.
+									<\p>
 									<p> 
-
+									For more details and extensive results, check our paper. 
+									<ul class="actions special">
+										<li><a href="https://arxiv.org/abs/2202.01198" class="button">Paper</a></li>
+										<li><a href="https://github.com/stevorackovic/A-Hybrid-Compartmental-Model-with-a-Case-Study-of-COVID-19-in-Great-Britain-and-Israel" class="button">Materials</a></li>
+									</ul>
 									</p>
 								</header>
 							</section>	
