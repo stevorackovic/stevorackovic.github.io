@@ -63,22 +63,45 @@
 									There are some popular choices of the graphs when representing the population, so we rely on these, with changing the topology based on the governmental restrictions in place. 
 									Namely, in the case of a hard lockdown, the population is presented with a lattice graph \(L_0\), and then, with the relaxation of the measures, additional edges are added to produce a small world lattice \(L_x\) with varying rewiring coefficient \(x>0\). 
 									For the higher levels of relaxations, the topology is built by composing the random graphs \(R_x\) rather than a small world lattice. There are 8 topologies in total built in the following way:
-									\( \begin{equation}
-									\centering
-									\begin{split}
-									L_s &= L_0 \cup L_{p_l}\\
-									L_m &= L_s \cup L_{p_l}\\
-									L_l &= L_m \cup L_{p_l}\\
-									R_{xs} &= L_l \cup R_{p_{rxs}}\\
-									R_{s} &= R_{xs} \cup R_{p_{rs}}\\
-									R_{m} &= R_{s} \cup R_{p_{rm}}\\
-									R_{l} &= R_{m} \cup R_{p_{rl}}\\
-									\end{split}
-									\end{equation} \)
+									\(L_s = L_0 \cup L_{p_l}; L_m = L_s \cup L_{p_l}; L_l = L_m \cup L_{p_l}; R_{xs} = L_l \cup R_{p_{rxs}}; R_{s} = R_{xs} \cup R_{p_{rs}}; R_{m} = R_{s} \cup R_{p_{rm}}; R_{l} = R_{m} \cup R_{p_{rl}};\)
 									where the coefficients need to be estimated from the data.
-									<\p>
+									</p>
 									<p> 
-									For more details and extensive results, check our paper. 
+									Now, since the countries have large cities with dense populations and only a few contacts in between, we assume that the total simulation population should be split into smaller groups to mimic this. 
+									Then the spread of the virus is modeled using a graph-based compartmental model within each 'region' independently. 
+									Additional 'effects' are added in a manner of DE compartmental models (that is, unless the internal travel restriction is active). 
+									The above split is not only helping to mimic the total population better, but it also reduces the computational workload, hence allowing to use a larger simulation population. 
+									</p>
+									<p>
+									Now, each node of a  graph is observed as an individual person that can be in one of the states S (susceptible), E (exposed), I (infected, which further splits into symptomatic or asymptomatic), H (hospitalized), D (deceased), R (recovered), Q (quarantined, within one of the subgroups defined above). 
+									This is schematically presented in the figure on the top. 
+									The system is, in fact, a Markov chain with a source node S and two sink nodes R and D. 
+									Node I is an intermediate state, and as soon as an individual jumps into I it transitions to Sy with probability \(p_{sy}\) or to Asy otherwise. 
+									To account for vaccination, we introduce two coefficients in our model: \(v_{eff1}\) and \(v_{eff2}\), appearing in some of the transition edges. 
+									Further, it is assumed that each individual can only get hospitalized if they previously manifested symptoms, and can only die if they were already hospitalized. 
+									If quarantine policies are in place, the states \(Q_{E}\), \(Q_{S}\) and \(Q_{I}\) are also feasible.
+									All the transition parameters need to be estimated from the data.
+									</p>
+									<p> 
+									All the model parameters are split into two main classes - country-dependent and country-independent. 
+									Further, some of them are considered statical while the others are assumed to change over time - the special care is invested in modeling the exposure coefficient p_e, where it is estimated as a function of several data attributes. 
+									For final estimates of the values and also a discussion on the ranges provided in the literature, check the paper.
+									</p>
+									<p> 
+									In the figure below, we can see the fitting results. 
+									We are primarily interested in the fit of hospitalized and deceased cases since these data are reliable, while the positive cases are hard to track. 
+									Nevertheless, it is also important to have a reasonable similarity in predicting the total cases (otherwise, it is just an overfit), so we included the comparison of symptomatic cases in the last plot.
+									Left column is Great Britain (GBR) and right is Israel (ISR).
+									Ground truth data is presented by a solid black line, while estimated numbers are presented in blue for GBR and in green for ISR — solid lines indicate mean over 100 simulations, and shaded area shows standard deviation.
+									Even if we do not observe a perfect fit for the curves, it is noticeable that the main waves are farily well predicted in terms of time and strength — the main missfit is at the final stage. 
+									For that period, our simulations are not able to predict the third wave in GBR and produce an overestimation of cases for ISR. 
+									A probable explanation lies on the long term fitting that we are taking into account (almost two years). 
+									A more realistic model could consider possible loss of immunity for recovered and vaccinated nodes, or even natural demographic changes. 
+									This is a possible line of research to be addressed in the future work.
+									</p>
+									<img src="images/Paper_2_Figure_2.png" alt="1"  width="700"/>
+									<p> 
+									For more details and extensive results, as well as the comparison of impacts for individual restrictions on the overall statistics, check our paper. 
 									<ul class="actions special">
 										<li><a href="https://arxiv.org/abs/2202.01198" class="button">Paper</a></li>
 										<li><a href="https://github.com/stevorackovic/A-Hybrid-Compartmental-Model-with-a-Case-Study-of-COVID-19-in-Great-Britain-and-Israel" class="button">Materials</a></li>
