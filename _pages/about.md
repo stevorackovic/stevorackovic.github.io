@@ -8,11 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a Post-doctoral Researcher at [NOVA School of Science and Technology](https://www.fct.unl.pt/en) with [NOVA LINCS](https://nova-lincs.di.fct.unl.pt/).
-My main interests include Machine Learning, Optimization, 3D Shape Modelling, Gaussian Processes. I received my PhD in <b>Mathematical Sciences</b> form the [University of Milan](https://www.unimi.it/en) (2022) and BSc and MSc (2018) in <b>Aerospace Engineering</b> from [Instituto Superior Técnico](https://tecnico.ulisboa.pt/pt/). 
-The PhD program was part of  [BIGMATH](http://itn-bigmath.unimi.it/) - an EU funded project in the areas of optimization, statistics, and large-scale linear algebra for Big Data.
-My PhD thesis [Gaussian Processes for 3D Shape Modelling of Noisy and Incomplete Data. An Application to Human Ears Reconstruction](https://air.unimi.it/handle/2434/947830), focused on the application of Gaussian Processes 
-to 3D shape modelling of challenging point clouds.
+<p>I am a Ph.D. candidate at the Instituto Superior Técnico, enrolled in an industrial Ph.D. program <a href="http://itn-bigmath.unimi.it/">BIGMATH</a> (This project has received funding from the European Union’s Horizon 2020 research and innovation program under the Marie Skłodowska-Curie Grant Agreement No 812912). I work under the supervision of <a href="https://www.di.fct.unl.pt/en/pessoas/docentes/claudia-alexandra-magalhaes-soares">Cláudia Soares</a> from <a href="https://www.unl.pt/en">NOVA</a> Uni in Lisbon and <a href="https://matematika.pmf.uns.ac.rs/o-nama/imenik/dusan-jakovetic/">Dušan Jakovetić</a> from the University of Novi Sad, and collaborate with <a href="https://www.3lateral.com/">3Lateral Studio</a> (Epic Games Company). The main focus of our research is applying machine learning and optimization techniques to improve the algorithms used in a 3D animation.</p>
 
 <br/><br/>
 
