@@ -8,6 +8,7 @@ paperurl: ''
 citation: 'S. Racković, C. Soares, D. Jakovetić, “Distributed Solution of the Inverse Rig Problem in Blendshape Facial Animation,”
 	arXiv preprint 	arXiv:2303.06370, (2023).'
 paperoglink: 'https://arxiv.org/abs/2303.06370'
+githublink: 'https://github.com/stevorackovic/FacialAnimation/tree/master/Scripts/DistributedSolution/ADMM'
 ---
 
 Abstract 
