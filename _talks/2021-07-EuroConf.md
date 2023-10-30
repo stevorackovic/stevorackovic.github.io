@@ -4,8 +4,8 @@ collection: talks
 type: "Conference talk"
 permalink: /talks/2021-07-EuroConf
 venue: "EURO Conference"
-venuelink: https://euro2021athens.com/
-date: 2022-07-2
+venuelink: https://euro2021.euro-online.org
+date: 2021-07-2
 location: "Athens, Greece"
 header:
   teaser: "Pic_euro.jpg"
