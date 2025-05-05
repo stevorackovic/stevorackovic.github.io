@@ -35,28 +35,19 @@ Professional Experience
 
 
 Education
-======
+=======================
+
 **PhD in Statistics and Stochastic Processes** 
-*Instituto Superior Tecnico, Lisbon* &nbsp;·&nbsp; 2019 – present
+*Instituto Superior Tecnico | Lisbon* &nbsp;·&nbsp; *2019 – present*
     - The curriculum covers machine learning, optimization, and statistics with a high demand for both theoretical and practical skills
     - Thesis: ``Distributed optimization of bio-kinetic models based on large 4D sequences''
     - Solving large-scale optimization problems in the facial animation, with the focus on a distributed optimization setting for reducing computational costs
-* MSc in Applied Mathematics – Data Science, 2016 – 2018
-Faculty of Sciences, Novi Sad
-* BSc in Applied Mathematics – Mathematics of Finance, 2013 – 2016
-Faculty of Sciences, Novi Sad
+    
+**MSc in Applied Mathematics – Data Science**
+*Faculty of Sciences | Novi Sad* &nbsp;·&nbsp; *2016 – 2018*
 
-Work experience
-======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+*BSc in Applied Mathematics – Mathematics of Finance**
+*Faculty of Sciences, Novi Sad* &nbsp;·&nbsp; *2013 – 2016*
   
 Skills
 ======
