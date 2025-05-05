@@ -19,6 +19,12 @@ Professional Experience
 - Prompt engineering  
 - Python, PostgreSQL, HuggingFace, LangChain, Azure, Git  
 
+**Development Lead and Mentor**  
+*Vega IT | Novi Sad* &nbsp;·&nbsp; *2024 – present*  
+- Mentoring junior analysts and supporting their technical growth  
+- Helping individuals with decision-making and career development  
+- Promoting best practices in data science and team collaboration  
+
 **Researcher**  
 *Institute for Systems and Robotics | Lisbon* &nbsp;·&nbsp; *2019 – 2023*  
 - Research on task offloading in networks of machines  
@@ -31,23 +37,23 @@ Professional Experience
 
 **Intern**  
 *BioSense Institute | Novi Sad* &nbsp;·&nbsp; *2018*  
-- Developing a classifier to recognize cultures planted in specific fields using satellite imagery
+- Developing a classifier to recognize cultures planted in specific fields using satellite imagery  
 
 
 Education
 =======================
 
-**PhD in Statistics and Stochastic Processes** 
-*Instituto Superior Tecnico | Lisbon* &nbsp;·&nbsp; *2019 – present*
-    - The curriculum covers machine learning, optimization, and statistics with a high demand for both theoretical and practical skills
-    - Thesis: ``Distributed optimization of bio-kinetic models based on large 4D sequences''
-    - Solving large-scale optimization problems in the facial animation, with the focus on a distributed optimization setting for reducing computational costs
-    
-**MSc in Applied Mathematics – Data Science**
-*Faculty of Sciences | Novi Sad* &nbsp;·&nbsp; *2016 – 2018*
+**PhD in Statistics and Stochastic Processes**  
+*Instituto Superior Tecnico | Lisbon* &nbsp;·&nbsp; *2019 – present*  
+- The curriculum covers machine learning, optimization, and statistics with a high demand for both theoretical and practical skills  
+- Thesis: ``Distributed optimization of bio-kinetic models based on large 4D sequences''  
+- Solving large-scale optimization problems in facial animation, focusing on distributed optimization to reduce computational costs  
 
-*BSc in Applied Mathematics – Mathematics of Finance**
-*Faculty of Sciences, Novi Sad* &nbsp;·&nbsp; *2013 – 2016*
+**MSc in Applied Mathematics – Data Science**  
+*Faculty of Sciences | Novi Sad* &nbsp;·&nbsp; *2016 – 2018*  
+
+**BSc in Applied Mathematics – Mathematics of Finance**  
+*Faculty of Sciences | Novi Sad* &nbsp;·&nbsp; *2013 – 2016*
   
 Skills
 ======
