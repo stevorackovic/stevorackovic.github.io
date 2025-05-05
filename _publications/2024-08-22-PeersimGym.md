@@ -5,7 +5,9 @@ permalink: /publication/2024-08-22-PeersimGym
 excerpt: ''
 date: 2024-08-22
 paperurl: ''
-citation: 'Metelo, F., Soares, C., Racković, S., Costa, P.Á. (2024). PeersimGym: An Environment for Solving the Task Offloading Problem with Reinforcement Learning. In: Bifet, A., Krilavičius, T., Miliou, I., Nowaczyk, S. (eds) Machine Learning and Knowledge Discovery in Databases. Applied Data Science Track. ECML PKDD 2024. Lecture Notes in Computer Science(), vol 14949. Springer, Cham. https://doi.org/10.1007/978-3-031-70378-2_3'
+citation: 'F. Metelo, C. Soares, S. Racković, P.Á. Costa, “PeersimGym: An Environment for Solving the Task Offloading Problem with Reinforcement Learning,” 
+Joint European Conference on Machine Learning and Knowledge Discovery in Databases,
+Cham: Springer Nature Switzerland, (2024)
 paperoglink: 'https://link.springer.com/chapter/10.1007/978-3-031-70378-2_3#citeas'
 githublink: 'https://github.com/FredericoMetelo/peersim-environment'
 githublink: 'https://github.com/FredericoMetelo/TaskOffloadingAgentLibrary'
