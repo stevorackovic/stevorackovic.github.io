@@ -10,7 +10,7 @@ Joint European Conference on Machine Learning and Knowledge Discovery in Databas
 Cham: Springer Nature Switzerland, (2024)
 paperoglink: 'https://link.springer.com/chapter/10.1007/978-3-031-70378-2_3#citeas'
 githublink: 'https://github.com/FredericoMetelo/peersim-environment'
-githublink: 'https://github.com/FredericoMetelo/TaskOffloadingAgentLibrary'
+githublink2: 'https://github.com/FredericoMetelo/TaskOffloadingAgentLibrary'
 ---
 
 Abstract 
