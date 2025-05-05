@@ -8,7 +8,7 @@ paperurl: ''
 citation: 'F. Metelo, C. Soares, S. Racković, P.A. Costa, “PeersimGym: An Environment for Solving the Task Offloading Problem with Reinforcement Learning,” 
 Joint European Conference on Machine Learning and Knowledge Discovery in Databases,
 Cham: Springer Nature Switzerland, (2024)'
-paperoglink: 'https://link.springer.com/chapter/10.1007/978-3-031-70378-2_3#citeas'
+paperoglink: 'https://link.springer.com/chapter/10.1007/978-3-031-70378-2_3'
 githublink: 'https://github.com/FredericoMetelo/peersim-environment'
 ---
 
