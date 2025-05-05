@@ -19,12 +19,6 @@ Professional Experience
 - Prompt engineering  
 - Python, PostgreSQL, HuggingFace, LangChain, Azure, Git  
 
-**Development Lead and Mentor**  
-*Vega IT | Novi Sad* &nbsp;·&nbsp; *2024 – present*  
-- Mentoring junior analysts and supporting their technical growth  
-- Helping individuals with decision-making and career development  
-- Promoting best practices in data science and team collaboration  
-
 **Researcher**  
 *Institute for Systems and Robotics | Lisbon* &nbsp;·&nbsp; *2019 – 2023*  
 - Research on task offloading in networks of machines  
@@ -56,13 +50,21 @@ Education
 *Faculty of Sciences | Novi Sad* &nbsp;·&nbsp; *2013 – 2016*
   
 Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+=======================
+**Technical Skills**
+* Python with PyTorch and TensorFlow
+* Microsoft Azure Cloud
+* MySQL and PostgreSQL
+* PowerBI
+* Git
+  
+**Conceptual Skills**
+* Problem solving and critical thinking
+* Machine learning and deep learning
+* Data analysis
+* Natural language processing and image processing
+* Optimization
+* Statistics
 
 Publications
 ======
