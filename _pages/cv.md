@@ -11,9 +11,15 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* PhD in Statistics and Stochastic Processes, 2019 – present
+Instituto Superior Tecnico, Lisbon
+    - The curriculum covers machine learning, optimization, and statistics with a high demand for both theoretical and practical skills
+    - Thesis: ``Distributed optimization of bio-kinetic models based on large 4D sequences''
+    - Solving large-scale optimization problems in the facial animation, with the focus on a distributed optimization setting for reducing computational costs
+* MSc in Applied Mathematics – Data Science, 2016 – 2018
+Faculty of Sciences, Novi Sad
+* BSc in Applied Mathematics – Mathematics of Finance, 2013 – 2016
+Faculty of Sciences, Novi Sad
 
 Work experience
 ======
