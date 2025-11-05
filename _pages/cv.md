@@ -13,7 +13,14 @@ Professional Experience
 =======================
 
 **Data Scientist**  
-*Vega IT | Novi Sad* &nbsp;·&nbsp; *2023 – present*  
+*Sixsentix | Novi Sad* &nbsp;·&nbsp; *2024 – present*  
+- Research and development with applications of Large Language Models in InsurTech  
+- Developing an agentic pipeline for knowledge extraction from documents  
+- Prompt engineering  
+- Python, PostgreSQL, HuggingFace, LangChain, Azure, Git
+
+**Data Scientist**  
+*Vega IT | Novi Sad* &nbsp;·&nbsp; *2023 – 2024*  
 - Research and development with applications of Large Language Models in InsurTech  
 - Developing an agentic pipeline for knowledge extraction from documents  
 - Prompt engineering  
@@ -38,7 +45,7 @@ Education
 =======================
 
 **PhD in Statistics and Stochastic Processes**  
-*Instituto Superior Tecnico | Lisbon* &nbsp;·&nbsp; *2019 – present*  
+*Instituto Superior Tecnico | Lisbon* &nbsp;·&nbsp; *2019 – 2024*  
 - The curriculum covers machine learning, optimization, and statistics with a high demand for both theoretical and practical skills  
 - Thesis: ``Distributed optimization of bio-kinetic models based on large 4D sequences''  
 - Solving large-scale optimization problems in facial animation, focusing on distributed optimization to reduce computational costs  
