@@ -12,12 +12,11 @@ redirect_from:
 Professional Experience
 =======================
 
-**Data Scientist**  
+**Machine Learning Engineer**  
 *Sixsentix | Novi Sad* &nbsp;·&nbsp; *2025 – present*  
-- Research and development with applications of Large Language Models in InsurTech  
-- Developing an agentic pipeline for knowledge extraction from documents  
-- Prompt engineering  
-- Python, PostgreSQL, HuggingFace, LangChain, Azure, Git
+- Research and development with applications of Natural Language Processing techniques and Large Language Models for integrated software testing
+- Implementation of ML Ops best practices with the drive for improving and monitoring the models
+- ML Ops, Python, LangChain, Azure, Git
 
 **Data Scientist**  
 *Vega IT | Novi Sad* &nbsp;·&nbsp; *2023 – 2025*  
