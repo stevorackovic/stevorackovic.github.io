@@ -46,7 +46,7 @@ Education
 **PhD in Statistics and Stochastic Processes**  
 *Instituto Superior Tecnico | Lisbon* &nbsp;·&nbsp; *2019 – 2025*  
 - The curriculum covers machine learning, optimization, and statistics with a high demand for both theoretical and practical skills  
-- Thesis: ``Distributed optimization of bio-kinetic models based on large 4D sequences''  
+- Thesis: ''Mathematical Methods for Inverse Rigging in Realistic Blendshape Models''  
 - Solving large-scale optimization problems in facial animation, focusing on distributed optimization to reduce computational costs  
 
 **MSc in Applied Mathematics – Data Science**  
